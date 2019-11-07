@@ -22,3 +22,29 @@ const omvDataSource = new harp.OmvDataSource({
   authenticationCode: "AGWSrfm4TtmXvv3sKbLlZwA"
 });
 map.addDataSource(omvDataSource);
+
+/* This is the same as above */
+const globalRailroads = new harp.OmvDataSource({
+  baseUrl: "https://xyz.api.here.com/hub/spaces/hUJ4ZHJR/tile/web",
+  apiFormat: harp.APIFormat.XYZSpace,
+  authenticationCode: "AAX7b-ZLTxOfEin2AWCbHQA" //Use this token!
+});
+
+map.addDataSource(globalRailroads).then(() => {
+  const styles = [
+    {
+      when: "$geometryType ^= 'line'",
+      renderOrder: 1000,
+      technique: "solid-line",
+      attr: {
+        color: "#FAA8FF",
+        transparent: true,
+        opacity: 1,
+        metricUnit: "Pixel",
+        lineWidth: 1
+      }
+    }
+  ];
+  globalRailroads.setStyleSet(styles);
+  map.update();
+});
