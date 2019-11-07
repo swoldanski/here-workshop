@@ -38,8 +38,6 @@ map.addDataSource(globalRailroads).then(() => {
       technique: "solid-line",
       attr: {
         color: "#FAA8FF",
-        transparent: true,
-        opacity: 1,
         metricUnit: "Pixel",
         lineWidth: 1
       }
