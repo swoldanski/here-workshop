@@ -46,3 +46,25 @@ map.addDataSource(globalRailroads).then(() => {
   globalRailroads.setStyleSet(styles);
   map.update();
 });
+
+const earthquakes = new harp.OmvDataSource({
+  baseUrl: "https://xyz.api.here.com/hub/spaces/HUIbgeLV/tile/web",
+  apiFormat: harp.APIFormat.XYZSpace,
+  authenticationCode: "AAX7b-ZLTxOfEin2AWCbHQA" //Use this token!
+});
+
+map.addDataSource(earthquakes).then(() => {
+  const styles = [
+    {
+      when: "$geometryType == 'point'",
+      technique: "circles",
+      renderOrder: 10000,
+      attr: {
+        color: "#50E3C2",
+        size: 10
+      }
+    }
+  ];
+  earthquakes.setStyleSet(styles);
+  map.update();
+});
