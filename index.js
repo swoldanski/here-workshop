@@ -7,7 +7,7 @@ const map = new harp.MapView({
   projection: harp.sphereProjection
 });
 
-map.setCameraGeolocationAndZoom(new harp.GeoCoordinates(38.736946, -9.142685), 16);
+map.setCameraGeolocationAndZoom(new harp.GeoCoordinates(38.736946, -9.142685), 6);
 
 const mapControls = new harp.MapControls(map);
 const ui = new harp.MapControlsUI(mapControls);
